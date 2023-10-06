@@ -28,7 +28,11 @@
             function playGame(computerInput, userInput){
                 console.log(`Computer chose ${computerInput}`);
                 console.log(`You chose: ${userInput}`);
-                if (computerInput === "rock" && userInput === "scissors"){
+
+                if (computerInput === userInput){
+                    return "It was a draw!"
+                }
+                else if (computerInput === "rock" && userInput === "scissors"){
                     return "You lose! Rock beats scissors!";
                 }
                 else if (computerInput === "rock" && userInput === "paper"){
@@ -47,7 +51,16 @@
                     return "You lose! Scissors beats paper.";
                 }
             }
-            console.log(playGame(computerInput, userInput))
+            function game(){
+                for (let i = 0; i < 5; i++){
+                    let input = prompt("What is your choice?").toLowerCase();
+                    let computerInput = getComputerChoice();
+                    console.log(playGame(computerInput, input));
+                }
+            }
+            game();
+
+    
         </script>
     </body>
 </html>
