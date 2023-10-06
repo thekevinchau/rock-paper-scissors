@@ -10,9 +10,44 @@
             //Function that generates a random value between 1 and 3.
             function getComputerChoice(){
                 let randomNumber = Math.floor(Math.random() * 4);
+                if (randomNumber === 1){
+                    return "rock"
+                }
+                else if (randomNumber === 2){
+                    return "paper"
+                }
+                else{
+                    return "scissors";
+                }
                 console.log(randomNumber);
             }
-            getComputerChoice();
+            let computerInput = getComputerChoice();
+            //Get user input
+            let userInput = prompt("Pick one! Rock, Paper, or Scissors?").toLowerCase();
+            
+            function playGame(computerInput, userInput){
+                console.log(`Computer chose ${computerInput}`);
+                console.log(`You chose: ${userInput}`);
+                if (computerInput === "rock" && userInput === "scissors"){
+                    return "You lose! Rock beats scissors!";
+                }
+                else if (computerInput === "rock" && userInput === "paper"){
+                    return "You win! Paper beats rock!";
+                }
+                else if (computerInput === "scissors" && userInput === "rock"){
+                    return "You win! Rock beats scissors!";
+                }
+                else if (computerInput === "scissors" && userInput === "paper"){
+                    return "You lose! Scissors beats paper!";
+                }
+                else if (computerInput === "paper" && userInput === "rock"){
+                    return "You lose! Paper beats rock!";
+                }
+                else {
+                    return "You lose! Scissors beats paper.";
+                }
+            }
+            console.log(playGame(computerInput, userInput))
         </script>
     </body>
 </html>
