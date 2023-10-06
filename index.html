@@ -22,44 +22,68 @@
                 console.log(randomNumber);
             }
             let computerInput = getComputerChoice();
-            //Get user input
-            let userInput = prompt("Pick one! Rock, Paper, or Scissors?").toLowerCase();
-            
             function playGame(computerInput, userInput){
-                console.log(`Computer chose ${computerInput}`);
+                console.log(`Computer chose: ${computerInput}`);
                 console.log(`You chose: ${userInput}`);
+                let winner = null;
 
                 if (computerInput === userInput){
-                    return "It was a draw!"
+                    console.log("It was a draw!");
                 }
-                else if (computerInput === "rock" && userInput === "scissors"){
-                    return "You lose! Rock beats scissors!";
+                else if (computerInput === "rock" && (userInput === "scissors" || userInput === "scissor")){
+                    winner = "Computer"
+                    console.log("You lose! Rock beats scissors!");
                 }
                 else if (computerInput === "rock" && userInput === "paper"){
-                    return "You win! Paper beats rock!";
+                    winner = "User"
+                    console.log("You win! Paper beats rock!");
                 }
                 else if (computerInput === "scissors" && userInput === "rock"){
-                    return "You win! Rock beats scissors!";
+                    winner = "User"
+                    console.log("You win! Rock beats scissors!");
                 }
                 else if (computerInput === "scissors" && userInput === "paper"){
-                    return "You lose! Scissors beats paper!";
+                    winner = "Computer"
+                    console.log("You lose! Scissors beats paper!");
                 }
                 else if (computerInput === "paper" && userInput === "rock"){
-                    return "You lose! Paper beats rock!";
+                    winner = "Computer"
+                    console.log("You lose! Paper beats rock!");
                 }
-                else {
-                    return "You lose! Scissors beats paper.";
+                else if (computerInput === "scissors" && userInput === "scissor"){
+                    console.log("It was a draw!");
                 }
+                return winner;
+
             }
             function game(){
+                let userScore = 0;
+                let computerScore = 0;
                 for (let i = 0; i < 5; i++){
                     let input = prompt("What is your choice?").toLowerCase();
                     let computerInput = getComputerChoice();
-                    console.log(playGame(computerInput, input));
+                    let winner = playGame(computerInput, input);
+                    if (winner === "Computer"){
+                        computerScore++;
+                    }
+                    else if (winner === "User"){
+                        userScore++;
+                    }
+                    else {
+                        computerScore+=0;
+                        userScore+=0;
+                    }
+                }
+                console.log(`Your score: ${userScore}`)
+                console.log(`Computer score: ${computerScore}`)
+                if (computerScore > userScore){
+                    console.log("The winner is the computer!")
+                }
+                else{
+                    console.log("You are the winner!")
                 }
             }
             game();
-
     
         </script>
     </body>
