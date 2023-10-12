@@ -4,87 +4,19 @@
     <head>
         <meta charset="utf-8">
         <title>Rock Paper Scissors</title>
+        <script src = "rps.js" defer></script>
+        <link rel="stylesheet" href="rps.css">
     </head>
     <body>
-        <script>
-            //Function that generates a random value between 1 and 3.
-            function getComputerChoice(){
-                let randomNumber = Math.floor(Math.random() * 4);
-                if (randomNumber === 1){
-                    return "rock"
-                }
-                else if (randomNumber === 2){
-                    return "paper"
-                }
-                else{
-                    return "scissors";
-                }
-                console.log(randomNumber);
-            }
-            let computerInput = getComputerChoice();
-            function playGame(computerInput, userInput){
-                console.log(`Computer chose: ${computerInput}`);
-                console.log(`You chose: ${userInput}`);
-                let winner = null;
-
-                if (computerInput === userInput){
-                    console.log("It was a draw!");
-                }
-                else if (computerInput === "rock" && (userInput === "scissors" || userInput === "scissor")){
-                    winner = "Computer"
-                    console.log("You lose! Rock beats scissors!");
-                }
-                else if (computerInput === "rock" && userInput === "paper"){
-                    winner = "User"
-                    console.log("You win! Paper beats rock!");
-                }
-                else if (computerInput === "scissors" && userInput === "rock"){
-                    winner = "User"
-                    console.log("You win! Rock beats scissors!");
-                }
-                else if (computerInput === "scissors" && userInput === "paper"){
-                    winner = "Computer"
-                    console.log("You lose! Scissors beats paper!");
-                }
-                else if (computerInput === "paper" && userInput === "rock"){
-                    winner = "Computer"
-                    console.log("You lose! Paper beats rock!");
-                }
-                else if (computerInput === "scissors" && userInput === "scissor"){
-                    console.log("It was a draw!");
-                }
-                return winner;
-
-            }
-            function game(){
-                let userScore = 0;
-                let computerScore = 0;
-                for (let i = 0; i < 5; i++){
-                    let input = prompt("What is your choice?").toLowerCase();
-                    let computerInput = getComputerChoice();
-                    let winner = playGame(computerInput, input);
-                    if (winner === "Computer"){
-                        computerScore++;
-                    }
-                    else if (winner === "User"){
-                        userScore++;
-                    }
-                    else {
-                        computerScore+=0;
-                        userScore+=0;
-                    }
-                }
-                console.log(`Your score: ${userScore}`)
-                console.log(`Computer score: ${computerScore}`)
-                if (computerScore > userScore){
-                    console.log("The winner is the computer!")
-                }
-                else{
-                    console.log("You are the winner!")
-                }
-            }
-            game();
-    
-        </script>
+        <div class = "container">
+            <div class="header">
+                Let's play! What will it be? Rock, Paper or Scissors?
+            </div>
+            <div class="button-container">
+                <button id = "rock">Rock</button>
+                <button id = "paper">Paper</button>
+                <button id = "scissor">Scissor</button>
+            </div>
+        </div>
     </body>
 </html>
