@@ -1,5 +1,3 @@
-let computerScore = 0;
-let userScore
 
 //Function that generates a random value between 1 and 3.
 function getComputerChoice() {
@@ -15,52 +13,56 @@ function getComputerChoice() {
     }
 }
 
+
+let computerScore = 0;
+let userScore = 0;
 //function to play the game
 function playGame(computerInput, userInput){
-    console.log (`${computerInput}`)
-    console.log (`${userInput}`)
-    let winner = "";
+    let buttons = document.querySelectorAll('button')
 
     if (computerInput === userInput){
-        textBox.textContent = "Draw!"
+        textBox.textContent = "It's a draw!"
     }
     else if (computerInput === 'Rock' && userInput === "Paper"){
         textBox.textContent = "You win! Your Paper beats my Rock!\n"
         userScore++;
-        winner = "user"
     }
     else if (computerInput === 'Rock' && userInput === "Scissors"){
         textBox.textContent = "You lose! My Rock beats your Scissors!\n"
-        computerSCore++;
-        winner = "computer"
+        computerScore++;
     }
     else if (computerInput === 'Paper' && userInput === "Rock"){
         textBox.textContent = "You lose! My Paper beats your Rock!\n"
         computerScore++;
-        winner = "computer"
     }
     else if (computerInput === 'Paper' && userInput === "Scissors"){
         textBox.textContent = "You win! Your Scissor beats my Paper!\n"
         userScore++;
-        winner = "user"
     }
     else if (computerInput === 'Scissors' && userInput === 'Rock'){
         textBox.textContent = "You win! Your Rock beats my Scissors!\n"
         userScore++;
-        winner = "user"
     }
     else if (computerInput === 'Scissors' && userInput === 'Paper'){
         textBox.textContent = "You lose! My Scissor beats your Paper!\n"
         computerScore++;
-        winner = "computer"
     }
     else {
         textBox.textContent = "Not a valid input!"
 
     }
-    console.log(userScore)
-    return winner;
-}
+    userScoreBox.textContent = `User score is: ${userScore}`
+    computerScoreBox.textContent = `Computer score is: ${computerScore}`
+    if (userScore === 5){
+        textBox.textContent = "You win the game! Thanks for playing."
+        buttons.forEach(button => button.disabled = true)
+    }
+    else if (computerScore === 5){
+        textBox.textContent = "I win! Thanks for playing with me."
+        buttons.forEach(button => button.disabled = true)
+    }
+    }
+
 let body = document.querySelector('body')
 //first: User and Computer input -> textBox -> Score
 let resultContainer = document.createElement('div')
