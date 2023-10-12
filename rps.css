@@ -1,6 +1,10 @@
 * {
     margin: 0px;
 }
+img {
+    width: 190px;
+    height: 180px;
+}
 
 button {
     cursor: pointer;
@@ -8,15 +12,22 @@ button {
     width: 200px;
     height: 200px;
     margin: 20px;
+    font-weight: bold;
+    
+}
+p {
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .button-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 500px;
 }
 .header {
+    font-size: 30px;
     height: 50px;
     display: flex;
     justify-content: center;
